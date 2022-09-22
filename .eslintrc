@@ -1,0 +1,27 @@
+{
+    "root": true,
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:eslint-plugin/recommended"
+    ],
+    "plugins": [
+        "react",
+        "eslint-plugin"
+    ],
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "script"
+    },
+    "rules": {
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1
+    }
+}
