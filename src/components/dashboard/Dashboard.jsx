@@ -73,9 +73,7 @@ const Dashboard = props => {
     };
 
     const onChangeCity = value => {
-        console.log(value);
         setSelectedCity(value);
-        console.log(displayEvents, eventList);
         setDisplayEvents(eventList.filter((el) => {
             if (selectedMonth) {
                 return el.city === value && getMonthFormat(el.date).toLowerCase() === selectedMonth.toLowerCase();
@@ -85,7 +83,6 @@ const Dashboard = props => {
     };
 
     const onChangeMonth = value => {
-        console.log(value);
         setSelectedMonth(value);
         setDisplayEvents(eventList.filter((el) => {
             if (selectedCity) {
@@ -113,7 +110,6 @@ const Dashboard = props => {
     };
 
     function onChangeBookmark(value) {
-        console.log(value);
         let newBookmarkList = bookmarkList;
         for (const item of newBookmarkList){
             if(item.id === value) {
@@ -121,12 +117,10 @@ const Dashboard = props => {
                 break;
             }
         }
-        console.log(newBookmarkList);
         setBookmarkList([...newBookmarkList]);
     };
 
     const onClickReset = () => {
-        console.log("Reset ...");
         setDisplayEvents(eventList);
         setSelectedMonth("");
         setSelectedCity("");
@@ -195,8 +189,6 @@ const Dashboard = props => {
                                                     {
                                                         checkBookmark(el.id) &&
                                                         <Tooltip title="Remove Bookmark">
-                                                            {/*<Button type={"link"} icon={<BookFilled/>}*/}
-                                                            {/*        onClick={() => onChangeBookmark(el.id)}/>*/}
                                                             <BookFilled onClick={() => onChangeBookmark(el.id)}/>
                                                         </Tooltip>
                                                     }
@@ -215,8 +207,6 @@ const Dashboard = props => {
                 </Col>
                 <Col xs={1} sm={2} md={4}/>
             </Row>
-            {JSON.stringify(bookmarkList)}<br/>
-            {JSON.stringify(selectedCity)}<br/>
         </>
     );
 };
