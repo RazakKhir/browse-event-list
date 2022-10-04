@@ -10,8 +10,8 @@ const Dashboard = props => {
     const [eventList, setEventList] = useState([]);
     const [displayEvents, setDisplayEvents] = useState([]);
     const [bookmarkList, setBookmarkList] = useState([]);
-    const [selectedCity, setSelectedCity] = useState("");
-    const [selectedMonth, setSelectedMonth] = useState("");
+    const [selectedCity, setSelectedCity] = useState(null);
+    const [selectedMonth, setSelectedMonth] = useState(null);
     const cityList = ["Amsterdam", "Berlin", "Rim", "St.Petersburg"];
     const monthList = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
@@ -122,8 +122,8 @@ const Dashboard = props => {
 
     const onClickReset = () => {
         setDisplayEvents(eventList);
-        setSelectedMonth("");
-        setSelectedCity("");
+        setSelectedMonth(null);
+        setSelectedCity(null);
     };
 
     window.addEventListener('beforeunload', (event) => {
@@ -142,7 +142,7 @@ const Dashboard = props => {
                             <Row gutter={24}>
                                 <Col sm={24} md={12} lg={7} className={"form-control"}>
                                     <span style={{marginRight: 5, paddingTop: 3, width: "25%"}}>City :</span>
-                                    <Select defaultValue={"Please select"} onChange={(e) => {
+                                    <Select placeholder={"Please Select"} value={selectedCity} onChange={(e) => {
                                         onChangeCity(e);
                                     }} style={{float: "right", width: "75%"}}>
                                         {/*<Option value={"Please select"} key={0} disabled={true}>{"Please select"}</Option>*/}
@@ -153,7 +153,7 @@ const Dashboard = props => {
                                 </Col>
                                 <Col sm={24} md={12} lg={7} className={"form-control"}>
                                     <span style={{marginRight: 5, paddingTop: 3, width: "30%"}}>Month :</span>
-                                    <Select defaultValue={"Please select"} onChange={(e) => {
+                                    <Select placeholder={"Please Select"} value={selectedMonth} onChange={(e) => {
                                         onChangeMonth(e);
                                     }} style={{float: "right", width: "70%"}}>
                                         {
